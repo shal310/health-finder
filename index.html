@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Health Finder</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="healthfinder.js"></script>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <form class="horizontal-row" id="health-finder-form" action="" method="GET">
+                <select name="gender" class="form-control" data-style="btn-success" required="required">
+                    <option value="">Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <select name="who" class="form-control" data-style="btn-success" required="required">
+                    <option value="">Who</option>
+                    <option value="me">Me</option>
+                    <option value="child">Child</option>
+                    <option value="someone">Someone else</option>
+                </select>
+                <input name="age" type="text" placeholder="Age (0-130)" />
+
+                <div class="checkbox">
+                    <label title="Selectable only if gender is set to Female">
+                      <input type="checkbox" name="is_pregnant" disabled> Is Pregnant
+                    </label>
+                </div>
+                <button class="btn btn-primary btn-lg" type="submit">
+                    Submit
+
+                </button>
+            </form>
+        </div>
+        <div id="health-finder-results"></div>
+    </body>
+</html>
