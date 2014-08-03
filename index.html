@@ -19,16 +19,16 @@
             <form class="horizontal-row" id="health-finder-form" action="" method="GET">
                 <select name="gender" class="form-control" data-style="btn-success" required="required">
                     <option value="">Gender</option>
-                    <option value="male">Male</option>
+                    <option value="male" selected>Male</option>
                     <option value="female">Female</option>
                 </select>
                 <select name="who" class="form-control" data-style="btn-success" required="required">
                     <option value="">Who</option>
                     <option value="me">Me</option>
                     <option value="child">Child</option>
-                    <option value="someone">Someone else</option>
+                    <option value="someone" selected>Someone else</option>
                 </select>
-                <input name="age" type="text" placeholder="Age (0-130)" />
+                <input name="age" type="text" placeholder="Age (0-130)" value="23"/>
 
                 <div class="checkbox">
                     <label title="Selectable only if gender is set to Female">
