@@ -4,6 +4,12 @@ ul {
 
 ul li {
     border: solid 1px;
+    margin: 10px;
+}
+
+ul li ul li {
+    border: none;
+
 }
 
 #health-finder-results {
