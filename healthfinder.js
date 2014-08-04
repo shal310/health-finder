@@ -1,8 +1,8 @@
 
-var fetch_sections_markup = function(sections) {
+var fetch_sections_markup = function(sections, id) {
 
     var div = $('<div />').text('Sections');
-    var ul = $('<ul class="panel-group" id="sections-items"/>');
+    var ul = $('<ul class="panel-group" id="section-items-' + id + '"/>');
 
     $.each(sections, function(index, section){
         if(section) {
@@ -10,12 +10,12 @@ var fetch_sections_markup = function(sections) {
             var description = section.Description;
             var content = section.Content;
 
-            var a = $('<a data-toggle="collapse" data-parent="#sections-items" href="#collapse-' + index + '" class="collapsed" />');
+            var a = $('<a data-toggle="collapse" data-parent="#sections-items-' + id + '" href="#collapse-' + index + '-' + id + '" class="collapsed" />');
             var heading = $('<h4 />').attr('title', description).html(title);
             a.html(heading);
             var panel_div = $('<div class="panel-default" />').html(a);
 
-            var content_div = $('<div class="panel-collapse collapse" id="collapse-' + index + '"/>');
+            var content_div = $('<div class="panel-collapse collapse" id="collapse-' + index + '-' + id + '"/>');
             var p = $('<p />').html(content);
             content_div.html(p);
 
@@ -139,7 +139,7 @@ $(function(){
 
                         li.append(a_healthfinder);
 
-                        var section_markup = fetch_sections_markup(sections);
+                        var section_markup = fetch_sections_markup(sections, id);
                         li.append(section_markup);
 
                         var related_markup = fetch_related_items_markup(related_items);
