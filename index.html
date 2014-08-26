@@ -11,6 +11,8 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- <script data-main="scripts/main" src="assets/lib/js/require-2.1.14.js"></script> -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
         <script src="healthfinder.js"></script>
     </head>
     
@@ -41,6 +43,8 @@
                 </button>
             </form>
         </div>
-        <div id="health-finder-results"></div>
+        <div id="health-finder-results">
+            <ul id="recommendations"></ul>
+        </div>
     </body>
 </html>
