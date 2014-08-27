@@ -1,65 +1,45 @@
-<!--
-/**
-sequence: index,
-category_heading: topic.MyHFCategoryHeading,
-last_update: topic.LastUpdate,
-image_alt : topic.ImageAlt,
-title : topic.Title,
-image_url : topic.ImageUrl,
-populations : topic.Populations,
-description : topic.MyHFDescription,
-related_items : topic.RelatedItems,
-category : topic.MyHFCategory,
-url : topic.HealthfinderUrl,
-accessible_version : topic.AccessibleVersion,
-sections : topic.sections,
-id : topic.Id,
-categories: topic.Categories,
-logo: topic.HealthfinderLogo
-
-**/
--->
-
 <script id="health-recommender" type="text/html">
-<li id="{{id}}" class="collapsible">
-    <h4>{{title}}</h4>
-    <div class="health-content">
+    <div class="col-md-3 col-sm-6 hero-feature health-content" style="border: solid 1px" id="{{id}}">
+        <h4>{{title}}</h4>
         <div class="description">
             {{description}}
         </div>
-        <a href="http://healthfinder.gov">
+        <div class="thumbnail">
             <img src="{{image_url}}" alt="{{image_alt}}" />
-        </a>
-
-        <a href="{{accessible_version}}" target="_blank">Accessible Version</a>
-
+            <div class="caption">
+                <a href="{{accessible_version}}" target="_blank">Accessible Version</a>
+            </div>
+        </div>
+        <div class="sections">
         {{#sections}}
-        <div>Sections
-            <ul class="panel-group" id="section-items-{{id}}">
-                <li class="panel">
-                    <div class="panel-default">
-                        <a data-toggle="collapse" data-parent="#sections-items-{{id}}" href="#collapse-{{sequence}}-{{id}}" class="collapsed">
-                            <h4 title="Most people who have a sexually transmitted disease (STD) don&amp;rsquo;t have any symptoms. The only way to know if you have an STD is to get tested.">The Basics</h4></a>
-                    </div>
-                    <div class="panel-collapse collapse" id="collapse-{{sequence}}-{{id}}">
-                    </div>
-                </li>
+            <div class="section">
+                <label>{{Title}}</label>
+                <div class="section-description">
+                    {{Description}}
+                </div>
+                <div class="section-content hidden">
+                    {{Content}}
+                </div>
+            </div>
+        {{/sections}}
+        </div>
+
+        <div class="related-items">
+            <ul>
+                {{#related_items}}
+                    <li>
+                        <a href="{{url}}" alt="{{Title}}">{{Title}}</a>({{Type}})
+                    </li>
+                {{/related_items}}
             </ul>
         </div>
-        {{/sections}}
-
-        {{#related_items}}
-        <div class="related-items">Related Items
-            {{related_items}}
-        </div>
-        {{/related_items}}
-        <div>{{category_heading}}
-            Categories
-            <div class="categories">{{categories}}</div>
-        </div>
+        {{#categories}}
+        <div class="categories">{{categories}}</div>
+        {{/categories}}
+        {{#populations}}
+        <div class="populations">{{populations}}</div>
+        {{/populations}}
     </div>
-
-</li>
 </script>
 
 

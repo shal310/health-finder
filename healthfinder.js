@@ -24,23 +24,22 @@ $(function () {
                     $.each(topics, function (index, topic) {
                         if (index > 5) return;
                         var data = {
-                            sequence: index,
-                            category_heading: topic.MyHFCategoryHeading,
-                            last_update: topic.LastUpdate,
-                            image_alt : topic.ImageAlt,
-                            title : topic.Title,
-                            image_url : topic.ImageUrl,
-                            populations : topic.Populations,
-                            description : topic.MyHFDescription,
-                            related_items : topic.RelatedItems,
-                            category : topic.MyHFCategory,
-                            url : topic.HealthfinderUrl,
-                            accessible_version : topic.AccessibleVersion,
-                            sections : topic.sections,
-                            id : topic.Id,
-                            categories: topic.Categories,
-                            logo: topic.HealthfinderLogo
-
+                              sequence           : index
+                            , id                 : topic.Id
+                            , url                : topic.HealthfinderUrl
+                            , logo               : topic.HealthfinderLogo
+                            , title              : topic.Title
+                            , last_update        : topic.LastUpdate
+                            , image_alt          : topic.ImageAlt
+                            , image_url          : topic.ImageUrl
+                            , populations        : topic.Populations
+                            , description        : topic.MyHFDescription
+                            , related_items      : topic.RelatedItems
+                            , category           : topic.MyHFCategory
+                            , accessible_version : topic.AccessibleVersion
+                            , sections           : topic.Sections
+                            , categories         : topic.Categories
+                            , category_heading   : topic.MyHFCategoryHeading
                         }
 
                         $.get('templates/recommendation.html', function (template, textStatus, jqXhr) {
