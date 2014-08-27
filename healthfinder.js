@@ -22,7 +22,7 @@ $(function () {
                     var topics = result.Topics;
                     var tools = result.Tools;
                     $.each(topics, function (index, topic) {
-                        if (index > 5) return;
+                        if (index > 10) return;
                         var data = {
                               sequence           : index
                             , id                 : topic.Id
