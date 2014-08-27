@@ -17,26 +17,34 @@ $(function () {
             success: function (responseText) {
                 var result = responseText.Result;
                 if (result.Error === 'False') {
-                    var heading = result.MyHFHeading;
+                    var main_heading = result.MyHFHeading;
                     var total = result.Total;
                     var topics = result.Topics;
                     var tools = result.Tools;
                     $.each(topics, function (index, topic) {
+                        if (index > 5) return;
                         var data = {
-                            sequence      : index,
-                            id            : topic.Id,
-                            title         : topic.Title,
-                            logo          : topic.HealthFinderLogo,
-                            image_url     : topic.ImageUrl,
-                            image_alt     : topic.ImageAlt,
-                            categories    : topic.Categories,
-                                 sections : topic.Sections,
+                            sequence: index,
+                            category_heading: topic.MyHFCategoryHeading,
+                            last_update: topic.LastUpdate,
+                            image_alt : topic.ImageAlt,
+                            title : topic.Title,
+                            image_url : topic.ImageUrl,
+                            populations : topic.Populations,
+                            description : topic.MyHFDescription,
                             related_items : topic.RelatedItems,
-                                  hf_url  : topic.HealthfinderUrl,
-                            last_updated  : topic.LastUpdate
+                            category : topic.MyHFCategory,
+                            url : topic.HealthfinderUrl,
+                            accessible_version : topic.AccessibleVersion,
+                            sections : topic.sections,
+                            id : topic.Id,
+                            categories: topic.Categories,
+                            logo: topic.HealthfinderLogo
+
                         }
+
                         $.get('templates/recommendation.html', function (template, textStatus, jqXhr) {
-                            var html = $(template).filter('#health-recommender').html();
+                            var html = $(template).find('#health-recommender').html();
                             Mustache.parse(html);
                             var rendered = Mustache.render(html, data);
                             $recommendations.append(rendered);
