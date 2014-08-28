@@ -1,3 +1,4 @@
+/*
 ul {
     list-style-type: none;
 }
@@ -11,8 +12,14 @@ ul li ul li {
     border: none;
 
 }
+*/
 
 #health-finder-results {
     border: solid 1px;
     min-height: 20px;
+}
+
+#spinner {
+  padding: 20px;
+  display: inline-block;
 }

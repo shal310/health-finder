@@ -1,5 +1,12 @@
 $(function () {
     $('#health-finder-form').on('submit', function (e) {
+
+        //reset recommendations if already present
+        $('#recommendations').html();
+  
+        //Show Spinner
+        $('#spinner').removeClass('hidden');
+
         e.preventDefault();
         var $recommendations = $('#recommendations');
         var $form = $(this);
@@ -47,6 +54,7 @@ $(function () {
                             Mustache.parse(html);
                             var rendered = Mustache.render(html, data);
                             $recommendations.append(rendered);
+                            $('#spinner').addClass('hidden');
                         });
                     });
                 }
