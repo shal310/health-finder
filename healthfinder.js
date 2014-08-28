@@ -34,7 +34,20 @@ $(function () {
                     var main_heading = result.MyHFHeading;
                     var total = result.Total;
                     var topics = result.Topics;
-                    var tools = result.Tools;
+
+                    var heading_context = {
+                          main_heading : main_heading
+                        , total        : total
+
+                    }
+
+                    $.get('templates/result-headings.html', function (template, textStatus, jqXhr) {
+                        var html = $(template).find('#health-heading').html();
+                        Mustache.parse(html);
+                        var rendered = Mustache.render(html, heading_context);
+                        $recommendations.append(rendered);
+                    });
+
                     $.each(topics, function (index, topic) {
                         var data = {
                               sequence           : index

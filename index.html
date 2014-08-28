@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
         <title>Health Finder</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -64,6 +63,9 @@
                             <li>
                                 <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Health Suggestions</a>
                             </li>
+                            <li>
+                                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Topics</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
@@ -83,34 +85,47 @@
                 </div>
             </div>
             <!-- /.row -->
+
             <div class="container-fluid">
-                <form role="form" id="health-finder-form" action="." method="GET">
+                <form role="form" class="form-horizontal" id="health-finder-form" action="." method="GET">
                     <div class="form-group">
-                        <select name="gender" data-style="btn-success" required="required">
-                            <option value="">Gender</option>
-                            <option value="male" selected>Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="who" data-style="btn-success" required="required">
-                            <option value="">Who</option>
-                            <option value="me">Me</option>
-                            <option value="child">Child</option>
-                            <option value="someone" selected>Someone else</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input name="age" type="text" placeholder="Age (0-130)" value="23" />
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label title="Selectable only if gender is set to Female">
-                                <input type="checkbox" name="is_pregnant" disabled>Is Pregnant</label>
+                        <label class="col-sm-2 control-label" for="gender">Gender</label>
+                        <div class="col-sm-5">
+                            <select id="gender" name="gender" data-style="btn-success" required="required">
+                                <option value="" selected>Select One</option>
+                                <option value="male" selected>Male</option>
+                                <option value="female">Female</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                        <label class="col-sm-2 control-label" for="gender">Who</label>
+                        <div class="col-sm-5">
+                            <select name="who" data-style="btn-success" required="required">
+                                <option value="">Select One</option>
+                                <option value="me">Me</option>
+                                <option value="child">Child</option>
+                                <option value="someone" selected>Someone else</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="age">Age</label>
+                        <div class="col-sm-5">
+                            <input id="age" name="age" type="text" placeholder="Age (0-130)" value="23" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="is_pregnant">Is pregnant</label>
+                        <div class="col-sm-5">
+                            <input id="is_pregnant" type="checkbox" name="is_pregnant">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2"></label>
+                        <div class="col-sm-5">
+                            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -125,5 +140,4 @@
             </footer>
         </div>
     </body>
-
 </html>
