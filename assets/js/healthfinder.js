@@ -28,6 +28,7 @@ $(function () {
             type: "GET",
             url: url,
             dataType: "jsonp",
+            crossDomain: true,
             success: function (responseText) {
                 var result = responseText.Result;
                 if (result.Error === 'False') {
