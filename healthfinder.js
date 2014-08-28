@@ -1,8 +1,8 @@
 $(function () {
-    $('#health-finder-form').on('submit', function (e) {
+    $(document).on('click', '#health-finder-form', function (e) {
 
         //reset recommendations if already present
-        $('#recommendations').html();
+        $('#recommendations').empty();
   
         //Show Spinner
         $('#spinner').removeClass('hidden');
