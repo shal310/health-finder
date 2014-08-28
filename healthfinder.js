@@ -1,5 +1,12 @@
 $(function () {
-    $(document).on('click', '#health-finder-form', function (e) {
+
+    /*
+    $(document).on('mouseover', '.panel', function(){
+      $(this).find('.description').toggle();
+    });
+    */
+
+    $(document).on('submit', '#health-finder-form', function (e) {
 
         //reset recommendations if already present
         $('#recommendations').empty();
@@ -29,7 +36,6 @@ $(function () {
                     var topics = result.Topics;
                     var tools = result.Tools;
                     $.each(topics, function (index, topic) {
-                        if (index > 10) return;
                         var data = {
                               sequence           : index
                             , id                 : topic.Id

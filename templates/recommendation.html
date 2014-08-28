@@ -1,45 +1,64 @@
 <script id="health-recommender" type="text/html">
-    <div class="col-md-5 col-sm-6 health-content tile" id="tile-{{id}}">
-        <h4>{{title}}</h4>
-        <div class="description">
-            {{description}}
-        </div>
-        <div class="thumbnail">
-            <img src="{{image_url}}" alt="{{image_alt}}" />
-            <div class="caption">
-                <a href="{{accessible_version}}" target="_blank">Accessible Version</a>
-            </div>
-        </div>
-        <div class="sections">
-        {{#sections}}
-            <div class="section">
-                <label>{{Title}}</label>
-                <div class="section-description">
-                    {{Description}}
-                </div>
-                <div class="section-content hidden">
-                    {{Content}}
+    <div class="col-lg-5 col-md-4 tile" id="tile-{{id}}">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    {{title}}
                 </div>
             </div>
-        {{/sections}}
+            <div class="description">{{description}}</div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
         </div>
+        <div class="col-md-5 col-sm-6 health-content tile" id="tile-{{id}}" style="display: none;">
+            <h4>{{title}}</h4>
+            <div class="description">
+                {{description}}
+            </div>
+            <div class="thumbnail">
+                <img src="{{image_url}}" alt="{{image_alt}}" />
+                <div class="caption">
+                    <a href="{{accessible_version}}" target="_blank">Accessible Version</a>
+                </div>
+            </div>
+            <div class="sections">
+            {{#sections}}
+                <div class="section">
+                    <label>{{Title}}</label>
+                    <div class="section-description">
+                        {{Description}}
+                    </div>
+                    <div class="section-content hidden">
+                        {{Content}}
+                    </div>
+                </div>
+            {{/sections}}
+            </div>
 
-        <div class="related-items">
-            <ul>
-                {{#related_items}}
-                    <li>
-                        <a href="{{url}}" alt="{{Title}}">{{Title}}</a>({{Type}})
-                    </li>
-                {{/related_items}}
-            </ul>
+            <div class="related-items">
+                <ul>
+                    {{#related_items}}
+                        <li>
+                            <a href="{{url}}" alt="{{Title}}">{{Title}}</a>({{Type}})
+                        </li>
+                    {{/related_items}}
+                </ul>
+            </div>
+            {{#categories}}
+            <div class="categories">{{categories}}</div>
+            {{/categories}}
+            {{#populations}}
+            <div class="populations">{{populations}}</div>
+            {{/populations}}
         </div>
-        {{#categories}}
-        <div class="categories">{{categories}}</div>
-        {{/categories}}
-        {{#populations}}
-        <div class="populations">{{populations}}</div>
-        {{/populations}}
     </div>
+
+
 </script>
 
 
