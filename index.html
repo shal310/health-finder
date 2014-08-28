@@ -5,19 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/lib/bootstrap/themes/sb-admin2.css">
-        <link rel="stylesheet" href="style.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
-        <script src="healthfinder.js"></script>
+        <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="assets/lib/fontawesome/font-awesome.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <script src="assets/lib/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="assets/lib/js/mustache-0.8.1.js"></script>
+        <script src="assets/js/healthfinder.js"></script>
     </head>
     
     <body>
@@ -61,10 +57,10 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Health Suggestions</a>
+                                <a class="active" href="index.html"><i class="fa fa-tasks fa-fw"></i> Health Suggestions</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Topics</a>
+                                <a href="#"><i class="fa fa-list fa-fw"></i> Topics</a>
                             </li>
                         </ul>
                     </div>
@@ -93,7 +89,7 @@
                         <div class="col-sm-5">
                             <select id="gender" name="gender" data-style="btn-success" required="required">
                                 <option value="" selected>Select One</option>
-                                <option value="male" selected>Male</option>
+                                <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
@@ -102,25 +98,27 @@
                         <label class="col-sm-2 control-label" for="gender">Who</label>
                         <div class="col-sm-5">
                             <select name="who" data-style="btn-success" required="required">
-                                <option value="">Select One</option>
+                                <option value="" selected>Select One</option>
                                 <option value="me">Me</option>
                                 <option value="child">Child</option>
-                                <option value="someone" selected>Someone else</option>
+                                <option value="someone">Someone else</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="age">Age</label>
                         <div class="col-sm-5">
-                            <input id="age" name="age" type="text" placeholder="Age (0-130)" value="23" />
+                            <input id="age" name="age" type="text" required="required" placeholder="Age (0-130)" />
                         </div>
                     </div>
+                    <!--
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="is_pregnant">Is pregnant</label>
                         <div class="col-sm-5">
                             <input id="is_pregnant" type="checkbox" name="is_pregnant">
                         </div>
                     </div>
+                    -->
                     <div class="form-group">
                         <label class="col-sm-2"></label>
                         <div class="col-sm-5">
