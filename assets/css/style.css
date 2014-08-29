@@ -378,3 +378,9 @@ table.dataTable thead .sorting:after {
 .total {
   padding: 10px;
 }
+
+select#gender,
+select#who {
+  width: 125px;
+}
+}
