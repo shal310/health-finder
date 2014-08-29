@@ -43,7 +43,7 @@ $(function () {
                     }
 
                     $.get('templates/result-headings.html', function (template, textStatus, jqXhr) {
-                        var html = $(template).find('#health-heading').html();
+                        var html = $(template).filter('#health-heading').html();
                         Mustache.parse(html);
                         var rendered = Mustache.render(html, heading_context);
                         $recommendations.append(rendered);
@@ -70,7 +70,7 @@ $(function () {
                         }
 
                         $.get('templates/recommendation.html', function (template, textStatus, jqXhr) {
-                            var html = $(template).find('#health-recommender').html();
+                            var html = $(template).filter('#health-recommender').html();
                             Mustache.parse(html);
                             var rendered = Mustache.render(html, data);
                             $recommendations.append(rendered);
