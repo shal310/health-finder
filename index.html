@@ -6,21 +6,21 @@
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
         <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.min.css" />
-        <!--
-        <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap-theme.min.css" />
-        -->
         <link rel="stylesheet" href="assets/lib/fontawesome/font-awesome.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
 
         <script src="assets/lib/js/jquery-1.11.1.min.js"></script>
         <script src="assets/lib/bootstrap/bootstrap.min.js"></script>
-        <script src="assets/lib/js/mustache-0.8.1.js"></script>
-        <script src="assets/js/healthfinder.js"></script>
+
+        <script type="text/javascript" src="assets/lib/js/handlebars-v1.3.0.js"></script>
+        <script type="text/javascript" src="assets/lib/js/ember.js"></script>
+        <script type="text/javascript" src="assets/js/healthfinder.ember.js"></script>
+
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          })(window,document,'script','assets/lib/js/analytics.js','ga');
         
           ga('create', 'UA-54268947-1', 'auto');
           ga('send', 'pageview');
@@ -29,50 +29,19 @@
     </head>
     
     <body>
+
+    <script type="text/x-handlebars">
         <div id="wrapper">
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <a class="navbar-brand" href="index.html">HealthFinder v1.0</a>
-                <!-- /.navbar-header -->
-                <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-messages">
-                            <li>
-                                <div>
-                                    <strong>Contact</strong>
-                                </div>
-                                <div>
-                                    <a href="mailto:kuppa.shalini@gmail.com">
-                                      <i class="fa fa-envelope"></i> Email
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-messages -->
-                    </li>
-                </ul>
-                <!-- /.navbar-top-links -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                {{#link-to 'topics' class='navbar-brand'}}Health Finder v.1.0{{/link-to}}
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input class="form-control" placeholder="Search..." type="text">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <!-- /input-group -->
+                            <li>
+                                {{#link-to 'posts' class="fa fa-tasks fa-fw"}}Health Suggestions{{/link-to}}
                             </li>
                             <li>
-                                <a class="active" href="index.html"><i class="fa fa-tasks fa-fw"></i> Health Suggestions</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-list fa-fw"></i> Topics</a>
+                                {{#link-to 'topics' class="fa fa-list fa-fw"}}Topics{{/link-to}}
                             </li>
                         </ul>
                     </div>
@@ -80,74 +49,84 @@
                 </div>
                 <!-- /.navbar-static-side -->
             </nav>
-
+        {{outlet}}
         </div>
+</script>
 
+<script type="text/x-handlebars" id="posts">
         <!-- Page Content -->
         <div id="page-wrapper">
             <!-- Title -->
             <div class="row">
                 <div class="col-lg-12">
                      <h3>Make your choice</h3>
-
                 </div>
             </div>
             <!-- /.row -->
 
-            <div class="container-fluid">
-                <form role="form" class="form-horizontal" id="health-finder-form" action="." method="GET">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="gender">Gender</label>
-                        <div class="col-sm-5">
-                            <select id="gender" name="gender" data-style="btn-success" required="required">
-                                <option value="" selected>Select One</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="gender">Who</label>
-                        <div class="col-sm-5">
-                            <select id="who" name="who" data-style="btn-success" required="required">
-                                <option value="" selected>Select One</option>
-                                <option value="me">Me</option>
-                                <option value="child">Child</option>
-                                <option value="someone">Someone else</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="age">Age</label>
-                        <div class="col-sm-5">
-                            <input id="age" name="age" type="text" required="required" placeholder="Age (0-130)" />
-                        </div>
-                    </div>
-                    <!--
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="is_pregnant">Is pregnant</label>
-                        <div class="col-sm-5">
-                            <input id="is_pregnant" type="checkbox" name="is_pregnant">
-                        </div>
-                    </div>
-                    -->
-                    <div class="form-group">
-                        <label class="col-sm-2"></label>
-                        <div class="col-sm-5">
-                            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Page Features --> <span id="spinner" class="hidden"><i class="fa fa-lg fa-cog fa-spin"></i></span>
+            <!-- Page Features --> 
+            <span id="spinner" class="hidden"><i class="fa fa-lg fa-cog fa-spin"></i></span>
 
-            <div class="row" id="recommendations"></div>
+            <div class="row" id="recommendations">
+                  <div class="container-fluid">
+                      <div class="row-fluid">
+                        <div class="span3">
+                          <table class='table'>
+                            <thead>
+                              <tr><th>Recent Posts</th></tr>
+                            </thead>
+
+                            <tbody>
+                              {{#each model}}
+                                <tr>
+                                  <td>
+                                    {{#link-to 'post' this}}{{title}} <small class='muted'>by {{author.name}}</small>{{/link-to}}
+                                  </td>
+                                </tr>
+                              {{/each}}
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="span9">
+                          {{outlet}}
+                        </div>
+                      </div>
+                    </div>
+
+            </div>
+            </script>
+
+            <script type="text/x-handlebars" id="post">
+    {{#if isEditing}}
+      {{partial 'post/edit'}}
+      <button {{action 'doneEditing'}}>Done</button>
+    {{else}}
+      <button {{action 'edit'}}>Edit</button>
+    {{/if}}
+
+    <h1>{{title}}</h1>
+    <h2>by {{author.name}} <small class='muted'>({{format-date date}})</small></h2>
+
+    <hr>
+
+    <div class='intro'>
+      {{format-markdown excerpt}}
+    </div>
+
+    <div class='below-the-fold'>
+      {{format-markdown body}}
+    </div>
+  </script>
+  
             <!-- Footer -->
+            <script type="text/x-handlebars" id="footer">
             <footer>
                 <div class="row">
                     <div class="col-lg-12"></div>
                 </div>
             </footer>
+            </script>
         </div>
     </body>
 </html>
