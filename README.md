@@ -5,8 +5,6 @@ Implements a basic Health Finder developer API
 
 This is a work in progress. 
 
-A preview can be seen at: http://karthikr.altervista.org/health-finder/
-
 
 Libraries:
 
