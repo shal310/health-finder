@@ -50,32 +50,34 @@ $(function () {
                     });
 
                     $.each(topics, function (index, topic) {
-                        var data = {
-                              sequence           : index
-                            , id                 : topic.Id
-                            , url                : topic.HealthfinderUrl
-                            , logo               : topic.HealthfinderLogo
-                            , title              : topic.Title
-                            , last_update        : topic.LastUpdate
-                            , image_alt          : topic.ImageAlt
-                            , image_url          : topic.ImageUrl
-                            , populations        : topic.Populations
-                            , description        : topic.MyHFDescription
-                            , related_items      : topic.RelatedItems
-                            , category           : topic.MyHFCategory
-                            , accessible_version : topic.AccessibleVersion
-                            , sections           : topic.Sections
-                            , categories         : topic.Categories
-                            , category_heading   : topic.MyHFCategoryHeading
+                        if (topic.MyHFDescription) {
+                            var data = {
+                                  sequence           : index
+                                , id                 : topic.Id
+                                , url                : topic.HealthfinderUrl
+                                , logo               : topic.HealthfinderLogo
+                                , title              : topic.Title
+                                , last_update        : topic.LastUpdate
+                                , image_alt          : topic.ImageAlt
+                                , image_url          : topic.ImageUrl
+                                , populations        : topic.Populations
+                                , description        : topic.MyHFDescription
+                                , related_items      : topic.RelatedItems
+                                , category           : topic.MyHFCategory
+                                , accessible_version : topic.AccessibleVersion
+                                , sections           : topic.Sections
+                                , categories         : topic.Categories
+                                , category_heading   : topic.MyHFCategoryHeading
+                            }
+    
+                            $.get('templates/recommendation.html', function (template, textStatus, jqXhr) {
+                                var html = $(template).filter('#health-recommender').html();
+                                Mustache.parse(html);
+                                var rendered = Mustache.render(html, data);
+                                $recommendations.append(rendered);
+                                $('#spinner').addClass('hidden');
+                            });
                         }
-
-                        $.get('templates/recommendation.html', function (template, textStatus, jqXhr) {
-                            var html = $(template).filter('#health-recommender').html();
-                            Mustache.parse(html);
-                            var rendered = Mustache.render(html, data);
-                            $recommendations.append(rendered);
-                            $('#spinner').addClass('hidden');
-                        });
                     });
                 }
             }
